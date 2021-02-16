@@ -10,6 +10,8 @@ import biblioteca.Copia;
 import biblioteca.Lector;
 import biblioteca.Libro;
 import biblioteca.tipoLibro;
+import excepciones.CopiaInexistenteException;
+import excepciones.EstadoCopiaException;
 import excepciones.MaxCopiasException;
 import excepciones.MultaPendienteException;
 
@@ -18,7 +20,7 @@ public class ProbarBiblioteca {
 	private Autor HR;
 	private Libro Harry1, Harry2;
 	private Copia Primera, Segunda, Tercera, Cuarta, Quinta, Sexta;
-	private Lector Nahue;
+	private Lector Nahue, Santi;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -37,19 +39,38 @@ public class ProbarBiblioteca {
 		this.Sexta = new Copia(Harry2);
 		
 		this.Nahue = new Lector("Nahue","1564451220", "Provincia");
+		this.Santi = new Lector("Santi","1564451220", "Caballito");
 		
 	}
 
 	@Test
-	public void testPrestarCuatro() throws MaxCopiasException, MultaPendienteException {
+	public void testPrestarCuatro() throws MaxCopiasException, MultaPendienteException, CopiaInexistenteException, EstadoCopiaException {
 		
 		Nahue.adquirir(Primera);
 		Nahue.adquirir(Segunda);
 		Nahue.adquirir(Tercera);
 		Nahue.adquirir(Cuarta);
 		
-		fail("Preste todos los libros!!");
+		fail("Adquirió más de 3 libros");
 	}
+	
+	@Test
+	public void testDevolverInexistente() throws CopiaInexistenteException {
+		
+		Nahue.devolver(Primera);
+		
+		fail("Devolvió copia que no tenia");
+	}
+	
+	@Test
+	public void testCopiaNoDisponible() throws CopiaInexistenteException, EstadoCopiaException, MaxCopiasException, MultaPendienteException {
+		Nahue.adquirir(Primera);
+		Santi.adquirir(Primera);
+		
+		fail("Adquirió la copia de otra persona");
+	}
+	
+	
 	
 	
 	

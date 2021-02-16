@@ -3,6 +3,7 @@ package biblioteca;
 import java.util.ArrayList;
 
 import excepciones.CopiaInexistenteException;
+import excepciones.EstadoCopiaException;
 import excepciones.MaxCopiasException;
 import excepciones.MultaPendienteException;
 
@@ -33,12 +34,16 @@ public class Lector {
 		multa = null;
 	}
 	
-	public void adquirir(Copia copia) throws MaxCopiasException, MultaPendienteException {
+	public void adquirir(Copia copia) throws MaxCopiasException, MultaPendienteException, EstadoCopiaException {
 		checkMulta();
 		if(multa == null) {
 			if(copias.size() < 3) {
-				copias.add(copia);
-				copia.adquirir();
+				if (copia.estadoActual() == estadoCopia.DISPONIBLE) {
+					copias.add(copia);
+					copia.adquirir();
+				}
+				else
+					throw new EstadoCopiaException();
 			}
 			else
 				throw new MaxCopiasException();

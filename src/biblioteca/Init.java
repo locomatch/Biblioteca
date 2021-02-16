@@ -1,12 +1,13 @@
 package biblioteca;
 
 import excepciones.CopiaInexistenteException;
+import excepciones.EstadoCopiaException;
 import excepciones.MaxCopiasException;
 import excepciones.MultaPendienteException;
 
 public class Init {
 
-	public static void main(String[] args) throws MaxCopiasException, CopiaInexistenteException, MultaPendienteException {
+	public static void main(String[] args) throws MaxCopiasException, CopiaInexistenteException, MultaPendienteException, EstadoCopiaException {
 
 		Autor HR = new Autor("HR", "UK", "1998-01-26"); 
 		
