@@ -1,16 +1,19 @@
+package biblioteca;
+
+import java.time.LocalDate;
 
 public class Autor {
 
 	
 	private String nombre;
 	private String nacionalidad;
-	private String nacimiento;
+	private LocalDate nacimiento;
 	
 
 	public Autor(String nom, String nacionalid, String nacimient) {
 		nombre = nom;
 		nacionalidad = nacionalid;
-		nacimiento = nacimient;
+		LocalDate nacim = LocalDate.parse(nacimient);
+		nacimiento = nacim;
 	}
-	
 }

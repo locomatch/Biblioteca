@@ -1,4 +1,4 @@
-//import java.util.Date;
+package biblioteca;
 
 public class Libro {
 
@@ -9,7 +9,7 @@ public class Libro {
 	private String titulo;
 	private tipoLibro tipoLibro;
 	private String editorial;
-	private String anio;
+	private int anio;
 	private Autor autor;
 
 	
@@ -19,7 +19,7 @@ public class Libro {
 	}   
 		
 	
-	public Libro(String tit, tipoLibro lib, String edi, String ani, Autor aut) {
+	public Libro(String tit, tipoLibro lib, String edi, int ani, Autor aut) {
 		id = createID();
 		titulo = tit;
 		tipoLibro = lib;
@@ -27,6 +27,6 @@ public class Libro {
 		anio = ani;
 		autor = aut;
 	}
-	
+
 
 }
