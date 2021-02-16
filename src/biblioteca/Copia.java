@@ -3,6 +3,8 @@ package biblioteca;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
+import excepciones.MaxCopiasException;
+
 
 public class Copia{
 
@@ -53,14 +55,14 @@ public class Copia{
 		}
 	}
 	
-	public void adquirir() {
+	public void adquirir() throws MaxCopiasException {
 		if (estadoActual() == estadoCopia.DISPONIBLE) {
 			cambiarEstado(estadoCopia.PRESTADO);
 			inicioPrestamo = LocalDate.now();
 			System.out.println("Copia Adquirida!");
 		}
 		else
-			System.out.println("No se pueden adquirir mas copias");
+			throw new MaxCopiasException();
 		
 	}
 	

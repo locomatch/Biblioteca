@@ -2,6 +2,10 @@ package biblioteca;
 
 import java.util.ArrayList;
 
+import excepciones.CopiaInexistenteException;
+import excepciones.MaxCopiasException;
+import excepciones.MultaPendienteException;
+
 public class Lector {
 	
 	private static long idCounter = 1;
@@ -29,20 +33,23 @@ public class Lector {
 		multa = null;
 	}
 	
-	public void adquirir(Copia copia) {
+	public void adquirir(Copia copia) throws MaxCopiasException, MultaPendienteException {
 		checkMulta();
 		if(multa == null) {
 			if(copias.size() < 3) {
 				copias.add(copia);
 				copia.adquirir();
 			}
+			else
+				throw new MaxCopiasException();
 		}
 		else
-			System.out.println("Multa pendiente: " + multa.diasRestantes() + " dias restantes" );
+			throw new MultaPendienteException(multa.diasRestantes());
+
 		
 		}
 	
-	public void devolver(Copia copia) {
+	public void devolver(Copia copia) throws CopiaInexistenteException {
 		
 		long tiempoPrest;
 		
@@ -56,7 +63,7 @@ public class Lector {
 			System.out.println("Copia devuelta!");
 		}
 		else
-			System.out.println("El lector no tiene esta copia");
+			throw new CopiaInexistenteException();
 		
 
 	}
