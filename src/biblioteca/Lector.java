@@ -9,9 +9,9 @@ import excepciones.MultaPendienteException;
 
 public class Lector {
 	
-	private static long idCounter = 1;
+	private static int idCounter = 1;
 	
-	private String nSocio;
+	private int nSocio;
 	private String nombre;
 	private String telefono;
 	private String direccion;
@@ -20,11 +20,10 @@ public class Lector {
 	
 	private ArrayList<Copia> copias;
 	
-	public static synchronized String createID()
+	public static synchronized int createID()
 	{
-	    return String.valueOf(idCounter++);
+	    return idCounter++;
 	}   
-	
 	public Lector(String nom, String tel, String dir) {
 		nSocio = createID();
 		nombre = nom;

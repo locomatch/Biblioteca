@@ -2,9 +2,9 @@ package biblioteca;
 
 public class Libro {
 
-	private static long idCounter = 0;
+	private static int idCounter = 1;
 	
-	private String id;
+	private int id;
 	
 	private String titulo;
 	private tipoLibro tipoLibro;
@@ -13,9 +13,9 @@ public class Libro {
 	private Autor autor;
 
 	
-	public static synchronized String createID()
+	public static synchronized int createID()
 	{
-	    return String.valueOf(idCounter++);
+	    return idCounter++;
 	}   
 		
 	

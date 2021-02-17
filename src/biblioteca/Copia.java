@@ -8,9 +8,9 @@ import excepciones.MaxCopiasException;
 
 public class Copia{
 
-	private static long idCounter = 1;
+	private static int idCounter = 1;
 	
-	private String identificador;
+	private int identificador;
 	
 	private Libro libro;
 	private estadoCopia estado;
@@ -19,9 +19,9 @@ public class Copia{
 
 
 
-	public static synchronized String createID()
+	public static synchronized int createID()
 	{
-	    return String.valueOf(idCounter++);
+	    return idCounter++;
 	}   
 	
 	public Copia(Libro libro) {
@@ -49,25 +49,13 @@ public class Copia{
 
 	}
 	
-	public void checkMulta() {
-		if (getTiempoPrestado() > 30) {
-			
-		}
-	}
-	
 	public void adquirir() throws MaxCopiasException {
-		if (estadoActual() == estadoCopia.DISPONIBLE) {
-			cambiarEstado(estadoCopia.PRESTADO);
-			inicioPrestamo = LocalDate.now();
-			System.out.println("Copia Adquirida!");
-		}
-		else
+		if (estadoActual() != estadoCopia.DISPONIBLE) {
 			throw new MaxCopiasException();
-		
+		}
+		cambiarEstado(estadoCopia.PRESTADO);
+		inicioPrestamo = LocalDate.now();
+		System.out.println("Copia Adquirida!");
 	}
-	
-
-
-	
-	
+		
 }
