@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Table public class Copia implements Serializable{
 
 
-	@Column @Id @GeneratedValue (strategy = GenerationType.AUTO)
+	@Column @Id @GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int identificador;
 	
 	@OneToOne

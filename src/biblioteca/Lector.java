@@ -11,7 +11,7 @@ import excepciones.MultaPendienteException;
 @Entity
 @Table public class Lector implements Serializable {
 	
-	@Column @Id @GeneratedValue (strategy = GenerationType.AUTO)
+	@Column @Id @GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@Column

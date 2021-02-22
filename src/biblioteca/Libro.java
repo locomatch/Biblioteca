@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table public class Libro implements Serializable  {
 
-	@Column @Id @GeneratedValue (strategy = GenerationType.AUTO)
+	@Column @Id @GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@Column

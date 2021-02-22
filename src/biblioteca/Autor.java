@@ -6,7 +6,7 @@ import java.io.Serializable;
 @Entity 
 @Table public class Autor implements Serializable{
 
-	@Column @Id @GeneratedValue (strategy = GenerationType.AUTO)
+	@Column @Id @GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@Column
