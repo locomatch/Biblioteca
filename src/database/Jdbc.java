@@ -18,7 +18,7 @@ public class Jdbc {
 			Class.forName("org.postgresql.Driver");
 			
 		   String url = "jdbc:postgresql://localhost:5432/postgres";
-			conexion = DriverManager.getConnection(url, "postgres", "santi");
+			conexion = DriverManager.getConnection(url, "Biblioteca", "santi");
 			
 			sentenciaSQL = conexion.createStatement(resultado.TYPE_SCROLL_SENSITIVE, resultado.CONCUR_READ_ONLY);
 			

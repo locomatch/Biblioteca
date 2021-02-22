@@ -1,12 +1,21 @@
 package biblioteca;
-
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.io.Serializable;
 
-public class Autor {
+@Entity 
+@Table public class Autor implements Serializable{
 
+	@Column @Id @GeneratedValue (strategy = GenerationType.AUTO)
+	private int id;
 	
+	@Column
 	private String nombre;
+	
+	@Column
 	private String nacionalidad;
+	
+	@Column
 	private LocalDate nacimiento;
 	
 

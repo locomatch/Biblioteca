@@ -1,26 +1,33 @@
 package biblioteca;
 
-public class Libro {
+import java.io.Serializable;
 
-	private static int idCounter = 1;
-	
+import javax.persistence.*;
+
+@Entity
+@Table public class Libro implements Serializable  {
+
+	@Column @Id @GeneratedValue (strategy = GenerationType.AUTO)
 	private int id;
 	
+	@Column
 	private String titulo;
+	
+	@Column
 	private tipoLibro tipoLibro;
+	
+	@Column
 	private String editorial;
+	
+	@Column
 	private int anio;
+	
+	@OneToOne
+	@JoinColumn(name = "autor_id", referencedColumnName = "id")
 	private Autor autor;
 
 	
-	public static synchronized int createID()
-	{
-	    return idCounter++;
-	}   
-		
-	
 	public Libro(String tit, tipoLibro lib, String edi, int ani, Autor aut) {
-		id = createID();
 		titulo = tit;
 		tipoLibro = lib;
 		editorial = edi;

@@ -1,4 +1,9 @@
 package biblioteca;
+import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 import excepciones.CopiaInexistenteException;
 import excepciones.EstadoCopiaException;
@@ -9,6 +14,11 @@ public class Init {
 
 	public static void main(String[] args) throws MaxCopiasException, CopiaInexistenteException, MultaPendienteException, EstadoCopiaException {
 
+		EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("biblioteca");
+		
+		EntityManager em = managerFactory.createEntityManager();	
+		
+		
 		Autor hr = new Autor("HR", "UK", "1998-01-26"); 
 		
 		Libro harry1 = new Libro("Harry Potter Y la Piedra Filosofal", tipoLibro.NOVELA, "Editorial 1", 1970, hr);
@@ -25,11 +35,11 @@ public class Init {
 		
 		
 		
-		Lector Nahue = new Lector("Nahue","1564451220", "Provincia");
+		Lector nahue = new Lector("Nahue","1564451220", "Provincia");
 		
-		Nahue.adquirir(primera);
-		Nahue.devolver(primera);
-		Nahue.adquirir(segunda);
+		nahue.adquirir(primera);
+		nahue.devolver(primera);
+		nahue.adquirir(segunda);
 	//	Nahue.adquirir(Cuarta);
 	//	Nahue.adquirir(Sexta);
 	//	Nahue.devolver(Primera);
@@ -37,7 +47,21 @@ public class Init {
 		
 	//	System.out.println(Sexta.getTiempoPrestado());
 		
-		
+		EntityTransaction tran = em.getTransaction();
+		tran.begin();
+			em.persist(hr);
+			em.persist(harry1);
+			em.persist(harry2);
+			em.persist(nahue);
+			em.persist(primera);
+			em.persist(segunda);
+			em.persist(tercera);
+			em.persist(cuarta);
+			em.persist(quinta);
+			em.persist(sexta);
+			
+		tran.commit();
+		em.close();
 	}
 
 }
