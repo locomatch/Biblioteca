@@ -2,31 +2,37 @@ package biblioteca;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-
 import excepciones.MaxCopiasException;
+import java.io.Serializable;
+import javax.persistence.*;
+
+@Entity
+@Table public class Copia implements Serializable{
 
 
-public class Copia{
-
-	private static int idCounter = 1;
-	
+	@Column @Id @GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int identificador;
 	
+	@OneToOne
+	@JoinColumn(name = "libro_id", referencedColumnName = "id")
 	private Libro libro;
+	
+	@Column
 	private estadoCopia estado;
+	
+	@Column
 	private LocalDate inicioPrestamo;
 	
-
-
-
-	public static synchronized int createID()
-	{
-	    return idCounter++;
-	}   
+	@OneToOne
+	@JoinColumn(name = "lector_id", referencedColumnName = "id")
+	private Lector lector = null;
+	
+	public Copia() {
+		
+	}
 	
 	public Copia(Libro libro) {
 		super();
-		this.identificador = createID();
 		this.libro = libro;
 		this.estado = estadoCopia.DISPONIBLE;
 		LocalDate inicio = LocalDate.parse("1111-11-11");
@@ -49,13 +55,32 @@ public class Copia{
 
 	}
 	
-	public void adquirir() throws MaxCopiasException {
+	public void adquisicionLector(Lector nuevoLector) {
+		lector = nuevoLector;
+	}
+	
+	public void debolucionLector(Lector nuevoLector) {
+		lector = null;
+	}
+	
+	
+	
+	
+	public void adquirir(Lector auxLector) throws MaxCopiasException {
 		if (estadoActual() != estadoCopia.DISPONIBLE) {
 			throw new MaxCopiasException();
 		}
 		cambiarEstado(estadoCopia.PRESTADO);
 		inicioPrestamo = LocalDate.now();
+		lector = auxLector;
 		System.out.println("Copia Adquirida!");
 	}
 		
+	public void devolver() {
+		cambiarEstado(estadoCopia.DISPONIBLE);
+		lector = null;
+		System.out.println("Copia devuelta!");
+	}
+
+	
 }

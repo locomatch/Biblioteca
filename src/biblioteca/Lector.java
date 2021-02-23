@@ -1,31 +1,40 @@
 package biblioteca;
 
 import java.util.ArrayList;
-
+import javax.persistence.*;
+import java.io.Serializable;
 import excepciones.CopiaInexistenteException;
 import excepciones.EstadoCopiaException;
 import excepciones.MaxCopiasException;
 import excepciones.MultaPendienteException;
 
-public class Lector {
+@Entity
+@Table public class Lector implements Serializable {
 	
-	private static int idCounter = 1;
+	@Column @Id @GeneratedValue (strategy = GenerationType.IDENTITY)
+	private int id;
 	
-	private int nSocio;
+	@Column
 	private String nombre;
+	
+	@Column
 	private String telefono;
+	
+	@Column
 	private String direccion;
 	
+	@OneToOne
+	@JoinColumn(name = "multa_id", referencedColumnName = "id")
 	private Multa multa;
 	
+	@Transient
 	private ArrayList<Copia> copias;
 	
-	public static synchronized int createID()
-	{
-	    return idCounter++;
-	}   
+	public Lector() {
+		
+	}
+	
 	public Lector(String nom, String tel, String dir) {
-		nSocio = createID();
 		nombre = nom;
 		telefono = tel;
 		direccion = dir;
@@ -39,7 +48,7 @@ public class Lector {
 			if(copias.size() < 3) {
 				if (copia.estadoActual() == estadoCopia.DISPONIBLE) {
 					copias.add(copia);
-					copia.adquirir();
+					copia.adquirir(this);
 				}
 				else
 					throw new EstadoCopiaException();
@@ -63,8 +72,7 @@ public class Lector {
 				multa = new Multa((tiempoPrest-30)*2, this);
 			}
 			copias.remove(copia);
-			copia.cambiarEstado(estadoCopia.DISPONIBLE);
-			System.out.println("Copia devuelta!");
+			copia.devolver();
 		}
 		else
 			throw new CopiaInexistenteException();

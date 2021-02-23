@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel = "stylesheet" type = "text/css" href = "Theme.css" media = screen > 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript" src="Validaciones.js"></script>
+  
+
+<meta charset="ISO-8859-1">
+
+	<script>
+	  $( function() {
+	    $( "#tabs" ).tabs();
+	  } );
+	</script>
+	
+	<script>
+		function validarLectores(){
+			var formularioLectores = document.FormLectores;
+			var nombre = formularioLectores.NombreLector.value;
+			var telefono = formularioLectores.TelefonoLector.value
+			var direccion = formularioLectores.DireccionLector.value
+			
+			alert("Comienza validacion");
+			
+			if( nombre == null || nombre.length == 0 ) {
+				alert('[ERROR] Verificar campo NOMBRE');
+				return false;
+			}
+			else if( isNaN(telefono) || telefono == null || telefono.length == 0) {
+				alert('[ERROR] Verificar campo TELEFONO');
+				return false;
+			}
+			else if (direccion == null || direccion.length == 0) {
+				alert('[ERROR] Verificar campo DIRECCION');
+				return false;
+			}
+			alert(  "Nombre: " + nombre
+				  + " Telefono: " + telefono
+				  + " Direccion" + direccion);
+			return true;
+		}
+	</script>
+	
+	<script>
+		function validarLibros(){
+			var formularioLibros = document.FormLibros;
+			var titulo = formularioLibros.TituloLibro.value;
+			var tipo = formularioLibros.TipoLibro.value;
+			var editorial = formularioLibros.EditorialLibro.value;
+			var anio = formularioLibros.AnioLibro.value;
+			var autor = formularioLibros.AutorLibro.value;
+
+			alert("Comienza validacion");
+			
+			if( titulo == null || titulo.length == 0 ) {
+				alert('[ERROR] Verificar campo TITULO');
+				return false;
+			}
+			else if( tipo == null || tipo.length == 0 ) {
+				alert('[ERROR] Verificar campo CATEGORIA');
+				return false;
+			}
+			else if( editorial == null || editorial.length == 0 ) {
+				alert('[ERROR] Verificar campo EDITORIAL');
+				return false;
+			}
+			else if( isNaN(anio) || anio == null || anio.length == 0) {
+				alert('[ERROR] Verificar campo ANIO');
+				return false;
+			}
+			else if (autor == null || autor.length == 0) {
+				alert('[ERROR] Verificar campo AUTOR');
+				return false;
+			}
+			alert(  "Titulo: " + titulo
+				  + " Tipo: " + tipo
+				  + " Editorial" + editorial
+				  + " Anio: " + anio
+				  + " Autor" + autor);
+			return true;
+		}
+	</script>
+	
+	<script>
+		function validarAutores(){
+			var formularioAutores = document.FormAutores;
+			var nombre = formularioAutores.NombreAutor.value;
+			var nacionalidad = formularioAutores.NacionalidadAutor.value;
+			var nacimiento = formularioAutores.NacimientoAutor.value;
+
+
+			alert("Comienza validacion");
+			
+			if( nombre == null || nombre.length == 0 ) {
+				alert('[ERROR] Verificar campo NOMBRE');
+				return false;
+			}
+			else if( nacionalidad == null || nacionalidad.length == 0 ) {
+				alert('[ERROR] Verificar campo NACIONALIDAD');
+				return false;
+			}
+			else if( nacimiento == null || nacimiento.length == 0 ) {
+				alert('[ERROR] Verificar campo NACIMIENTO');
+				return false;
+			}
+			alert(  "Nombre: " + nombre
+				  + " Nacionalidad: " + nacionalidad
+				  + " Nacimiento" + nacimiento);
+			return true;
+		}
+	</script>
+	
+	<script>
+		function validarCopias(){
+			var formularioCopias = document.FormCopias;
+			var nombre = formularioCopias.NombreCopia.value;
+
+			alert("Comienza validacion");
+			
+			if( nombre == null || nombre.length == 0 ) {
+				alert('[ERROR] Verificar campo NOMBRE');
+				return false;
+			}
+			alert("Nombre: " + nombre);
+			return true;
+		}
+	</script>
+	
+	<script>
+		function validarBusquedas(){
+			var formularioBusquedas = document.FormBusquedas;
+			var nombre = formularioBusquedas.NombreBusqueda.value;
+
+			alert("Comienza validacion");
+			
+			if( nombre == null || nombre.length == 0 ) {
+				alert('[ERROR] Verificar campo NOMBRE');
+				return false;
+			}
+			alert("Nombre: " + nombre);
+			return true;
+		}
+	</script>
+  
+  
+
+ 
+<title>Formularios Biblioteca</title>
+</head>
+
+
+
+<body class="p-3 mb-2 bg-dark text-white">
+<br>
+
+<div id="tabs">
+	<fieldset>
+	<legend>Seleccione su opción</legend>
+	  	<ul>
+		    <li><a href="#tabs-1">Ingreso Lectores</a></li>
+		    <li><a href="#tabs-2">Ingreso Libros</a></li>
+		    <li><a href="#tabs-3">Ingreso Autores</a></li>
+		    <li><a href="#tabs-4">Ingreso Copias</a></li>
+		    <li><a href="#tabs-5">Busquedas</a></li>
+	  	</ul>
+	</fieldset>
+	<br><br>
+	    
+	<div id="tabs-1"> 
+		<fieldset>
+		<legend>Ingreso Lectores</legend>
+		<br>
+			<form name = "FormLectores">
+				<div class="form-group">
+					<label for="NombreTelefono">Nombre y Apellido</label>
+					<input type="text" id="NombreLector" placeholder="Ingrese su nombre completo" style="width: 50%; ">
+				</div>
+				<div class="form-group">
+					<label for="TelefonoLector">Telefono</label>
+					<input type="tel" id="TelefonoLector" placeholder="Ingrese su numero de telefono" style="width: 35%; ">
+				</div>
+				<div class="form-group">
+					<label for="DireccionLector">Direccion</label>
+					<input type="text" id="DireccionLector" placeholder="Ingrese su direccion completa" style="width: 50%; ">
+				</div>
+				<br>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary" class="mx-auto" onclick = "validarLectores()">Enviar datos</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="reset" class="btn btn-outline-primary">Limpiar datos</button>
+				</div>
+			</form>
+		</fieldset>
+	</div>
+	  
+	<div id="tabs-2"> 
+	
+		<fieldset>
+		<legend>Ingreso Libros</legend>
+		<br>
+			<form name = "FormLibros">
+				<div class="form-group">
+					<label for="TituloLibro">Titulo</label>
+					<input type="text" id="TituloLibro" placeholder="Ingrese el nombre completo del libro" style="width: 50%; ">
+				</div>
+				
+				<div class="form-group">
+					<label for="TipoLibro">Categoria de Libro</label>
+					<select class="form-control" id="TipoLibro" style="width: 25%; ">
+						<option>NOVELA</option>
+						<option>TEATRO</option>
+						<option>POESIA</option>
+						<option>ENSAYO</option>
+					</select>
+				</div>
+				
+				<div class="form-group">
+					<label for="EditorialLibro">Editorial</label>
+					<input type="text" id="EditorialLibro" placeholder="Ingrese la editorial del libro" style="width: 50%; ">
+				</div>
+				
+				<div class="form-group">
+					<label for="AnioLibro">Año</label>
+					<input type="number" id="AnioLibro" placeholder="Ingrese el año de emisión del libro" style="width: 25%; ">
+				</div>
+				
+				<div class="form-group">
+					<label for="AutorLibro">Autor</label>
+					<input type="text" id="EditorialLibro" placeholder="Ingrese el año de emisión del libro" style="width: 50%; ">
+				</div>
+				<br>
+				
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary" onclick = "validarLibros()">Enviar datos</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="reset" class="btn btn-outline-primary" style="position:relative;" >Limpiar datos</button>
+				</div>
+			</form>
+		</fieldset>  
+	</div>
+	
+	<div id="tabs-3"> 
+		<fieldset>
+		<legend>Ingreso Autores</legend>
+		<br>
+			<form name = "FormAutores">	
+			<div class="form-group">
+				<label for="NombreAutor">Nombre del libro</label>
+				<input type="text" id="NombreAutor" placeholder="Ingrese el nombre del autor" style="width: 50%; ">
+			</div>
+			
+			<div class="form-group">
+				<label for="EditorialLibro">Nacionalidad</label>
+				<input type="text" id="NacionalidadAutor" placeholder="Ingrese la nacionalidad del autor" style="width: 50%; ">
+			</div>
+			
+			<div class="form-group">
+				<label for="AnioLibro">Nacimiento</label>
+				<input type="date" id="NacimientoAutor" placeholder="Ingrese la fecha de nacimiento del autor" style="width: 50%; ">
+			 </div>
+			 <br>
+			 
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary" onclick = "validarAutores();">Enviar datos</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="reset" class="btn btn-outline-primary" style="position:relative;" >Limpiar datos</button>
+			</div>
+			</form>
+		</fieldset>
+	</div>
+	  
+	<div id="tabs-4"> 
+		<fieldset>
+		<legend>Ingreso Copias</legend>
+		<br>
+			<form name = "FormCopias">
+				<div class="form-group">
+					<label for="CopiaNombre">Nombre del libro</label>
+					<input type="text" id="NombreCopia" placeholder="Ingrese el nombre del libro" style="width: 50%; ">
+				</div>
+				<br>
+				
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary" onclick = "validarCopias()">Enviar datos</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="reset" class="btn btn-outline-primary">Limpiar datos</button>
+				</div>
+			</form>
+		</fieldset>  
+	</div>
+	
+	<div id="tabs-5"> 
+		<fieldset>
+		<legend>Busquedas</legend>
+			<form name = "FormBusquedas">
+				<div class="form-group">
+					<label for="NombreBusqueda">Nombre del libro</label>
+					<input type="text" id="NombreBusqueda" placeholder="Ingrese el nombre del libro" style="width: 50%; ">
+				</div>
+				<br>
+				
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary" onclick = "validarBusquedas()">Enviar datos</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="reset" class="btn btn-outline-primary">Limpiar datos</button>
+				</div>
+			</form>
+		</fieldset>  
+	</div>
+	
+</div>
+
+
+</body>
+</html>
