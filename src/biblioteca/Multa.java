@@ -23,7 +23,10 @@ import javax.persistence.*;
 	@JoinColumn(name = "lector_id", referencedColumnName = "id")
 	private Lector lector;
 	
-
+	public Multa() {
+		
+	}
+	
 	public Multa(long retraso, Lector lect) {
 		LocalDate inicio = LocalDate.now();
 		inicioMulta = inicio;

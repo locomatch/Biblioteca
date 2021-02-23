@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel = "stylesheet" type = "text/css" href = "Theme.css" media = screen > 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<meta charset="ISO-8859-1">
+
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+
+ 
+<title>Formularios Biblioteca</title>
+</head>
+
+
+
+<body class="p-3 mb-2 bg-dark text-white">
+<br>
+
+<div id="tabs">
+	<fieldset>
+	<legend>Seleccione su opción</legend>
+	  	<ul>
+		    <li><a href="#tabs-1">Ingreso Lectores</a></li>
+		    <li><a href="#tabs-2">Ingreso Libros</a></li>
+		    <li><a href="#tabs-3">Ingreso Autores</a></li>
+		    <li><a href="#tabs-4">Ingreso Copia</a></li>
+		    <li><a href="#tabs-5">Busquedas</a></li>
+	  	</ul>
+	</fieldset>
+	<br><br>
+	    
+	<div id="tabs-1"> 
+		<fieldset>
+		<legend>Ingreso Lectores</legend>
+		<br>
+			<form>
+				<div class="form-group">
+					<label for="NombreTelefono">Nombre y Apellido</label>
+					<input type="text" id="NombreLector" placeholder="Ingrese su nombre completo" style="width: 50%; ">
+				</div>
+				<div class="form-group">
+					<label for="TelefonoLector">Telefono</label>
+					<input type="tel" id="TelefonoLector" placeholder="Ingrese su numero de telefono" style="width: 35%; ">
+				</div>
+				<div class="form-group">
+					<label for="DireccionLector">Direccion</label>
+					<input type="text" id="DireccionLector" placeholder="Ingrese su direccion completa" style="width: 50%; ">
+				</div>
+				<br>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary" class="mx-auto">Enviar datos</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="reset" class="btn btn-outline-primary">Limpiar datos</button>
+				</div>
+			</form>
+		</fieldset>
+	</div>
+	  
+	<div id="tabs-2"> 
+	
+		<fieldset>
+		<legend>Ingreso Libros</legend>
+		<br>
+			<form>
+				<div class="form-group">
+					<label for="TituloLibro">Titulo</label>
+					<input type="text" id="TituloLibro" placeholder="Ingrese el nombre completo del libro" style="width: 50%; ">
+				</div>
+				
+				<div class="form-group">
+					<label for="TipoLibro">Categoria de Libro</label>
+					<select class="form-control" id="TipoLibro" style="width: 25%; ">
+						<option>NOVELA</option>
+						<option>TEATRO</option>
+						<option>POESIA</option>
+						<option>ENSAYO</option>
+					</select>
+				</div>
+				
+				<div class="form-group">
+					<label for="EditorialLibro">Editorial</label>
+					<input type="text" id="EditorialLibro" placeholder="Ingrese la editorial del libro" style="width: 50%; ">
+				</div>
+				
+				<div class="form-group">
+					<label for="AnioLibro">Año</label>
+					<input type="number" id="EditorialLibro" placeholder="Ingrese el año de emisión del libro" style="width: 25%; ">
+				</div>
+				
+				<div class="form-group">
+					<label for="AutorLibro">Autor</label>
+					<input type="text" id="EditorialLibro" placeholder="Ingrese el año de emisión del libro" style="width: 50%; ">
+				</div>
+				<br>
+				
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary" style="position:relative;">Enviar datos</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="reset" class="btn btn-outline-primary" style="position:relative;" >Limpiar datos</button>
+				</div>
+			</form>
+		</fieldset>  
+	</div>
+	
+	<div id="tabs-3"> 
+		<fieldset>
+		<legend>Ingreso Autores</legend>
+		<br>
+			<form>	
+			<div class="form-group">
+				<label for="NombreAutor">Nombre del libro</label>
+				<input type="text" id="NombreAutor" placeholder="Ingrese el nombre del autor" style="width: 50%; ">
+			</div>
+			
+			<div class="form-group">
+				<label for="EditorialLibro">Nacionalidad</label>
+				<input type="text" id="NacionalidadAutor" placeholder="Ingrese la nacionalidad del autor" style="width: 50%; ">
+			</div>
+			
+			<div class="form-group">
+				<label for="AnioLibro">Nacimiento</label>
+				<input type="date" id="NacimientoAutor" placeholder="Ingrese la fecha de nacimiento del autor" style="width: 50%; ">
+			 </div>
+			 <br>
+			 
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary" style="position:relative;">Enviar datos</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="reset" class="btn btn-outline-primary" style="position:relative;" >Limpiar datos</button>
+			</div>
+			</form>
+		</fieldset>
+	</div>
+	  
+	<div id="tabs-4"> 
+		<fieldset>
+		<legend>Ingreso Copias</legend>
+		<br>
+			<form>
+				<div class="form-group">
+					<label for="CopiaNombre">Nombre del libro</label>
+					<input type="text" id="CopiaNombre" placeholder="Ingrese el nombre del libro" style="width: 50%; ">
+				</div>
+				<br>
+				
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Enviar datos</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="reset" class="btn btn-outline-primary">Limpiar datos</button>
+				</div>
+			</form>
+		</fieldset>  
+	</div>
+	
+	<div id="tabs-5"> 
+		<fieldset>
+		<legend>Busquedas</legend>
+			<form>
+				<div class="form-group">
+					<label for="CopiaNombre">Nombre del libro</label>
+					<input type="text" id="CopiaNombre" placeholder="Ingrese el nombre del libro" style="width: 50%; ">
+				</div>
+				<br>
+				
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Enviar datos</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="reset" class="btn btn-outline-primary">Limpiar datos</button>
+				</div>
+			</form>
+		</fieldset>  
+	</div>
+	
+</div>
+
+
+</body>
+</html>

@@ -18,7 +18,10 @@ import java.io.Serializable;
 	@Column
 	private LocalDate nacimiento;
 	
-
+	public Autor() {
+		
+	}
+	
 	public Autor(String nom, String nacionalid, String nacimient) {
 		nombre = nom;
 		nacionalidad = nacionalid;

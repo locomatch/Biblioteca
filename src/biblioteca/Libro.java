@@ -26,6 +26,9 @@ import javax.persistence.*;
 	@JoinColumn(name = "autor_id", referencedColumnName = "id")
 	private Autor autor;
 
+	public Libro() {
+		
+	}
 	
 	public Libro(String tit, tipoLibro lib, String edi, int ani, Autor aut) {
 		titulo = tit;

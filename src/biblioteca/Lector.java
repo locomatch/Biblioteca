@@ -30,7 +30,10 @@ import excepciones.MultaPendienteException;
 	@Transient
 	private ArrayList<Copia> copias;
 	
-
+	public Lector() {
+		
+	}
+	
 	public Lector(String nom, String tel, String dir) {
 		nombre = nom;
 		telefono = tel;

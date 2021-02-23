@@ -27,6 +27,10 @@ import javax.persistence.*;
 	@JoinColumn(name = "lector_id", referencedColumnName = "id")
 	private Lector lector = null;
 	
+	public Copia() {
+		
+	}
+	
 	public Copia(Libro libro) {
 		super();
 		this.libro = libro;
