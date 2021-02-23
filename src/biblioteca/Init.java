@@ -1,23 +1,22 @@
 package biblioteca;
-import javax.persistence.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import excepciones.CopiaInexistenteException;
 import excepciones.EstadoCopiaException;
 import excepciones.MaxCopiasException;
 import excepciones.MultaPendienteException;
+import jakarta.xml.ws.Endpoint;
+import servicios.LectorService;
 
 public class Init {
 
 	public static void main(String[] args) throws MaxCopiasException, CopiaInexistenteException, MultaPendienteException, EstadoCopiaException {
 
-		EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("biblioteca");
+
 		
-		EntityManager em = managerFactory.createEntityManager();	
-		
+		Endpoint endPoint = Endpoint.publish("http://localhost:8080/LectorService", new LectorService());
 		
 		Autor hr = new Autor("HR", "UK", "1998-01-26"); 
 		
@@ -46,7 +45,8 @@ public class Init {
 	//	Nahue.adquirir(Sexta);
 		
 	//	System.out.println(Sexta.getTiempoPrestado());
-		
+	
+		/*	
 		EntityTransaction tran = em.getTransaction();
 		tran.begin();
 			em.persist(hr);
@@ -62,6 +62,6 @@ public class Init {
 			
 		tran.commit();
 		em.close();
+		*/
 	}
-
 }
