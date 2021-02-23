@@ -1,6 +1,6 @@
-#Biblioteca
+# Biblioteca
 
-##Consigna 
+## Consigna 
 ```
 Una biblioteca tiene copias de libros. Estos últimos se caracterizan por su nombre, tipo (novela, teatro, poesía, ensayo), editorial, año y autor.
 Los autores se caracterizan por su nombre, nacionalidad y fecha de nacimiento.
