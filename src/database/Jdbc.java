@@ -17,25 +17,19 @@ public class Jdbc {
 		try {
 			Class.forName("org.postgresql.Driver");
 			
-		   String url = "jdbc:postgresql://localhost:5432/postgres";
-			conexion = DriverManager.getConnection(url, "Biblioteca", "santi");
+		   String url = "jdbc:postgresql://localhost:5432/Biblioteca";
+			conexion = DriverManager.getConnection(url, "postgres", "santi");
 			
 			sentenciaSQL = conexion.createStatement(resultado.TYPE_SCROLL_SENSITIVE, resultado.CONCUR_READ_ONLY);
 			
-			String sqlString = "select * from contacto";
+			String sqlString = "select * from lector";
 			resultado = sentenciaSQL.executeQuery(sqlString);
 			
 			while (resultado.next()) {
-				System.out.println(resultado.getString("nombre"));
-				System.out.println(resultado.getString("email"));
+				System.out.println(resultado.getString("id"));
+				System.out.println(resultado.getString("telefono"));
 			}
 			
-			System.out.println("---------------------");
-			
-			while(resultado.previous()) {
-				System.out.println(resultado.getString("nombre"));
-				System.out.println(resultado.getString("email"));
-			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
