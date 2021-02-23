@@ -24,4 +24,4 @@ Generar por consola el listado de “Stock” de Libros
   - [x] Implementar JPA
 - [x] Implementar la BD (PostgreSQL)
 - [x] Crear Front (HTML-JAVASCRIPT)
-- [ ] Hacer funcionar el servicio LectorService
+- [x] Hacer funcionar el servicio LectorService (Ultimo Fix)
